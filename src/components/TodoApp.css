@@ -86,6 +86,11 @@ body {
 
 .todo-list {
   list-style: none;
+  color: #6b7280;
+}
+
+p.no-tasks {
+  padding: 1rem;
 }
 
 .todo-item {
@@ -263,11 +268,6 @@ body {
     align-items: center;
   }
 
-  /* .filter-buttons-top {
-   margin-bottom: 1rem;
-   display: flex;
-   justify-content: space-between;
-  } */
   .filter-buttons {
     display: none;
     order: -1;
@@ -288,5 +288,17 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .app-container {
+    height: auto;
+    max-height: 25vh;
+    background-image: url(../assets/bg-mobile-light.jpg);
+    padding: 2rem 1rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

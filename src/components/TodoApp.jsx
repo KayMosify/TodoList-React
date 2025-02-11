@@ -62,32 +62,35 @@ const TodoApp = () => {
 
         <div className="todo-list-container">
           <ul className="todo-list">
-            {filteredTodos.map(todo => (
-              <li key={todo.id} className="todo-item">
-                <label className="todo-label">
-                  <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)}
-                    className="todo-checkbox"
-                  />
-                  <span className="checkbox-custom">
-                    <img src={Check} alt="checkmark" />
-                  </span>
-                  <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
-                    {todo.text}
-                  </span>
-                </label>
-                <button
-                  onClick={() => deleteTodo(todo.id)}
-                  className="delete-button"
-                >
-                  <img src={Cross} alt="" />
-                </button>
-              </li>
-            ))}
-          </ul>
-
+              {todos.length === 0 ? (
+                <p className='no-tasks'>No tasks added yet</p>
+              ) : (
+                filteredTodos.map(todo => (
+                  <li key={todo.id} className="todo-item">
+                    <label className="todo-label">
+                      <input
+                        type="checkbox"
+                        checked={todo.completed}
+                        onChange={() => toggleTodo(todo.id)}
+                        className="todo-checkbox"
+                      />
+                      <span className="checkbox-custom">
+                        <img src={Check} alt="checkmark" />
+                      </span>
+                      <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
+                        {todo.text}
+                      </span>
+                    </label>
+                    <button
+                      onClick={() => deleteTodo(todo.id)}
+                      className="delete-button"
+                    >
+                      <img src={Cross} alt="Delete" />
+                    </button>
+                  </li>
+                ))
+              )}
+            </ul>
           <div className="todo-footer">
             <span className="items-left">
               {todos.filter(t => !t.completed).length} items left
